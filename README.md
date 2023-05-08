@@ -65,23 +65,39 @@ Yani, TCP ve TCP/IP farklı şeylerdir, ancak TCP/IP, TCP'nin yanı sıra bir di
 
 ## Server-Client Uygulaması
 
-**SERVER**
-1. Soket Oluşturmak (Create Socket)
+SERVER
 
+1. Create Socket
+2. Bind
+3. Listen
+4. Accept
+5. Send
+6. Receive
+7. Close
+
+CLIENT
+
+1. Create Socket
+2. Connect
+3. Send
+4. Receive
+5. Close
+
+
+
+### 1. Soket Oluşturmak (Create Socket)
 İlk olarak, server ve client tarafında socket oluşturulması gerekir. Bu, socket tanımlayıcılarının oluşturulmasını ve ağa bağlanmalarını sağlar.
 ```c
         int server_socket = socket(AF_INET, SOCK_STREAM, 0);               
 ```
 - İlk parametre olan "AF_INET", internet protokolü ailesinin (IPv4) kullanılacağını belirtir.
-
 - İkinci parametre olan "SOCK_STREAM", TCP protokolü kullanılarak iletişim kurulacağını belirtir.
-
 - Üçüncü parametre olan "0", protokolü belirlemede kullanılır ve genellikle sıfırlanarak varsayılan protokol kullanılır.
 
-2. Bağlamak (Bind)
-
+### 2. Bağlamak (Bind)
 Server tarafında, socket'in bir IP adresi ve port numarası ile eşleştirilmesi gerekmektedir. Bu işlem, serverın belirli bir port numarasına dinleme modunda kalmasını 
 sağlar ve clientların server'a bağlanabilmesini mümkün kılar.
+
 ```c
 #define PORT 4700
 #define SERVER_IP "127.0.0.1"
@@ -92,14 +108,14 @@ sağlar ve clientların server'a bağlanabilmesini mümkün kılar.
     //server_addr.sin_addr.s_addr = SERVER_IP 
     server_addr.sin_port = htons(PORT);
 ```
-- #define ile PORT ve SERVER_IP sabitleri tanımlanır. PORT, server tarafındaki soketin belirleneceği port numarasını tutar. SERVER_IP, serverın IP adresini belirtir. Bu durumda, 127.0.0.1, localhost olarak bilinen yerel bilgisayarın IP adresidir.
+- #define ile PORT ve SERVER_IP sabitleri tanımlanır. PORT, server tarafındaki soketin belirleneceği port numarasını tutar. SERVER_IP, serverın IP adresini belirtir. 
+Bu durumda, 127.0.0.1, localhost olarak bilinen yerel bilgisayarın IP adresidir.
 - struct sockaddr_in türündeki server_addr adres yapısı tanımlanır ve tüm elemanları sıfıra eşitlenir.
 - server_addr.sin_family = AF_INET; ile, adres yapısının internet protokol ailesi (IPv4) olarak ayarlanması sağlanır.
 - server_addr.sin_addr.s_addr = INADDR_ANY; ile, adres yapısının IP adresinin belirtilmemesi ve dinlemeye başlanacak tüm IP adreslerinden bağlantı isteklerini kabul etmesi sağlanır.
 - server_addr.sin_port = htons(PORT); ile, adres yapısının belirtilen PORT numarasına bağlanması sağlanır. htons() fonksiyonu, byte düzenlemesi nedeniyle, port numarasını doğru sırayla yerleştirmek için kullanılır.
 
-3. Dinlemek (Listen)
-
+### 3. Dinlemek (Listen)
 Server tarafında, belirli bir port üzerinden dinlemeye başlamak için listen() fonksiyonu çağrılır. Bu, serverın gelen bağlantıları kabul etmek için hazır olduğunu 
 bildirir.
 
@@ -120,7 +136,7 @@ Eğer listen() fonksiyonu -1 dönerse, bir hata oluştuğu anlamına gelir ve ha
 
 - printf() fonksiyonu ile, server tarafındaki soketin belirtilen PORT numarasında dinlemeye başarılı bir şekilde başladığı kullanıcıya bildirilir.
 
-4. Accept (Kabul)
+### 4. Accept (Kabul)
 
 Server tarafında, gelen bağlantıları kabul etmek için accept() fonksiyonu çağrılır. Bu fonksiyon, bir client bağlantısı geldiğinde, o bağlantıya özgü bir socket 
 tanımlayıcısı döndürür. Bu socket tanımlayıcısı, client ile iletişim kurmak için kullanılacaktır.
@@ -142,7 +158,7 @@ tanımlayıcısı döndürür. Bu socket tanımlayıcısı, client ile iletişim
 > accept() fonksiyonu, bir hata oluşursa -1 döner ve hata nedeni errno değişkeninde tutulur.
 
 
-5. Bağlantı (Connect) //Client.c
+### 5. Bağlantı (Connect) //Client.c
 
 ```c
     if (connect(socket_fd, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {
@@ -163,7 +179,7 @@ Bu kod, client tarafında, sunucu ile bağlantı kurmak için kullanılır.
 - close() fonksiyonu, belirtilen soketi kapatır ve soketi artık kullanılamaz hale getirir.
 
 
-6. Send/Receive
+### 6. Send/Receive
 
 Server ve client arasında, veri alışverişi yapmak için send() ve receive() fonksiyonları kullanılır. Server, accept() fonksiyonu ile alınan socket tanımlayıcısını 
 kullanarak gelen mesajları alır ve client tarafına send() fonksiyonuyla gönderir. Client, connect() fonksiyonu ile belirli bir servera bağlanır ve receive() fonksiyonu 
@@ -184,7 +200,7 @@ ile serverdan gelen mesajları alır ve send() fonksiyonu ile servera yanıt gö
 > recv() fonksiyonu, veri alımı tamamlandığında, alınan bayt sayısını döndürür. Eğer bir hata oluşursa, -1 döner ve hata nedeni errno değişkeninde tutulur.
 
 
-7. Close
+### 7. Close
 
 İletişim sona erdiğinde, server ve client taraflarında kullanılan socketler kapatılır. Bu, kaynakların serbest bırakılmasını ve daha fazla iletişim için hazır hale 
 getirilmesini sağlar.
