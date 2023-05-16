@@ -1,25 +1,34 @@
 # Soket Programlama
-Socket programlama, bir bilgisayar ağı üzerinden farklı cihazlar arasında iletişim kurmak için kullanılan bir programlama yöntemidir. Bu yöntem, bir bilgisayarın ağ üzerinden diğer bir bilgisayarla veya bir sunucuyla bağlantı kurmasına, veri alışverişi yapmasına ve iletişim kurmasına olanak tanır.
+Socket programlama, bir bilgisayar ağı üzerinden farklı cihazlar arasında iletişim kurmak için kullanılan bir programlama yöntemidir. Bu yöntem, bir bilgisayarın ağ üzerinden diğer bir 
+bilgisayarla veya bir sunucuyla bağlantı kurmasına, veri alışverişi yapmasına ve iletişim kurmasına olanak tanır.
 
-Socket programlama genellikle TCP/IP protokolünü kullanır ve bilgisayarlar arasındaki bağlantı, bir soket olarak adlandırılan bir bağlantı noktası üzerinden gerçekleştirilir. Bu soketler, bir sunucu uygulaması ve bir istemci uygulaması arasındaki iletişimi sağlar.
+Socket programlama genellikle TCP/IP protokolünü kullanır ve bilgisayarlar arasındaki bağlantı, bir soket olarak adlandırılan bir bağlantı noktası üzerinden gerçekleştirilir. Bu soketler, bir 
+sunucu uygulaması ve bir istemci uygulaması arasındaki iletişimi sağlar.
 
 # İnternet Protokolleri 
 ## TCP
-TCP (Transmission Control Protocol), İnternet Protokolü (IP) üzerinde çalışan bir iletişim protokolüdür. TCP, IP'nin üst katmanında çalışır ve uygulama katmanıyla birlikte çalışarak veri transferini yönetir.
+TCP (Transmission Control Protocol), İnternet Protokolü (IP) üzerinde çalışan bir iletişim protokolüdür. TCP, IP'nin üst katmanında çalışır ve uygulama katmanıyla birlikte çalışarak veri 
+transferini yönetir.
 
-TCP, güvenilir ve sıralı bir bağlantı sağlayarak verilerin kaybolmasını veya bozulmasını önler. Bu amaçla, verilerin doğru şekilde aktarıldığından emin olmak için bir dizi mekanizma kullanır. Örneğin, TCP, gönderilen her paket için bir onaylama (acknowledgement) paketi bekler ve eğer belirli bir süre içinde onaylama gelmezse, paketi yeniden gönderir.
+TCP, güvenilir ve sıralı bir bağlantı sağlayarak verilerin kaybolmasını veya bozulmasını önler. Bu amaçla, verilerin doğru şekilde aktarıldığından emin olmak için bir dizi mekanizma kullanır. 
+Örneğin, TCP, gönderilen her paket için bir onaylama (acknowledgement) paketi bekler ve eğer belirli bir süre içinde onaylama gelmezse, paketi yeniden gönderir.
 
-TCP ayrıca, verilerin doğru sırayla alınmasını sağlamak için bir sıra numarası (sequence number) kullanır. Bu numaralar, gönderilen paketlerin hangi sırada alınması gerektiğini belirler ve böylece verilerin doğru şekilde yeniden oluşturulmasını sağlar.
+TCP ayrıca, verilerin doğru sırayla alınmasını sağlamak için bir sıra numarası (sequence number) kullanır. Bu numaralar, gönderilen paketlerin hangi sırada alınması gerektiğini belirler ve 
+böylece verilerin doğru şekilde yeniden oluşturulmasını sağlar.
 
 
 ## UDP
-UDP (User Datagram Protocol), İnternet Protokolü (IP) üzerinde çalışan bir iletişim protokolüdür. UDP, IP'nin üst katmanında çalışır ve uygulama katmanıyla birlikte çalışarak veri transferini yönetir.
+UDP (User Datagram Protocol), İnternet Protokolü (IP) üzerinde çalışan bir iletişim protokolüdür. UDP, IP'nin üst katmanında çalışır ve uygulama katmanıyla birlikte çalışarak veri transferini 
+yönetir.
 
-TCP gibi güvenilir bir bağlantı sağlamaz, ancak veri paketlerini hızlı bir şekilde aktarabilir. Bu nedenle, hızlı ve etkili veri transferi gerektiren uygulamalar için kullanılır. Örneğin, oyunlarda gerçek zamanlı etkileşimler için, ses ve video akışı için UDP tercih edilir.
+TCP gibi güvenilir bir bağlantı sağlamaz, ancak veri paketlerini hızlı bir şekilde aktarabilir. Bu nedenle, hızlı ve etkili veri transferi gerektiren uygulamalar için kullanılır. Örneğin, 
+oyunlarda gerçek zamanlı etkileşimler için, ses ve video akışı için UDP tercih edilir.
 
-UDP, gönderilen veri paketlerinin doğruluğunu veya sıralamasını sağlamak için bir mekanizma kullanmaz. Bu nedenle, veri paketleri kaybolabilir, bozulabilir veya farklı bir sırayla alınabilir. Ancak, bu tür durumlar için uygulama katmanında hata düzeltme ve kontrol mekanizmaları kullanılabilir.
+UDP, gönderilen veri paketlerinin doğruluğunu veya sıralamasını sağlamak için bir mekanizma kullanmaz. Bu nedenle, veri paketleri kaybolabilir, bozulabilir veya farklı bir sırayla alınabilir. 
+Ancak, bu tür durumlar için uygulama katmanında hata düzeltme ve kontrol mekanizmaları kullanılabilir.
 
-UDP ayrıca, TCP'nin yaptığı gibi, bir bağlantı kurma veya bağlantıyı sonlandırma işlemleri yapmaz. Bu nedenle, bağlantı kurulduğunda veya kesildiğinde herhangi bir zaman gecikmesi olmaz. Bu özellik, UDP'nin hızlı veri transferi için tercih edilmesine neden olur.
+UDP ayrıca, TCP'nin yaptığı gibi, bir bağlantı kurma veya bağlantıyı sonlandırma işlemleri yapmaz. Bu nedenle, bağlantı kurulduğunda veya kesildiğinde herhangi bir zaman gecikmesi olmaz. Bu 
+özellik, UDP'nin hızlı veri transferi için tercih edilmesine neden olur.
 
 ![image](https://user-images.githubusercontent.com/75627147/236814147-a278bcf3-585f-4003-b1dc-76daa66a1428.png)
 
@@ -47,21 +56,67 @@ kullanmaktadır.
 
 
 # TCP/IP
-TCP/IP protokolü, internet üzerinden veri transferi için kullanılan bir iletişim protokolüdür. Bu protokol, ağdaki cihazlar arasında veri transferi yapmak için tasarlanmış bir standarttır ve internetin temelini oluşturur.
+TCP/IP protokolü, internet üzerinden veri transferi için kullanılan bir iletişim protokolüdür. Bu protokol, ağdaki cihazlar arasında veri transferi yapmak için tasarlanmış bir standarttır ve 
+internetin temelini oluşturur.
 
-TCP/IP protokolü, iki ayrı protokolün birleşmesiyle oluşur: Transmission Control Protocol (TCP) ve Internet Protocol (IP). IP protokolü, ağ üzerinden veri paketlerini yönlendirmek için kullanılırken, TCP protokolü, verilerin güvenilir bir şekilde aktarılmasını sağlamak için kullanılır.
-
+TCP/IP protokolü, iki ayrı protokolün birleşmesiyle oluşur: Transmission Control Protocol (TCP) ve Internet Protocol (IP). IP protokolü, ağ üzerinden veri paketlerini yönlendirmek için 
+kullanılırken, TCP protokolü, verilerin güvenilir bir şekilde aktarılmasını sağlamak için kullanılır.
 
 
 ### TCP vs TCP/IP
-TCP, İnternet Protokolü (IP) üzerinde çalışan bir iletişim protokolüdür ve IP'nin üst katmanında çalışır. TCP, veri transferi sırasında güvenilir bir bağlantı sağlamak için bir dizi mekanizma kullanır ve verilerin doğru şekilde aktarıldığından emin olur.
+TCP, İnternet Protokolü (IP) üzerinde çalışan bir iletişim protokolüdür ve IP'nin üst katmanında çalışır. TCP, veri transferi sırasında güvenilir bir bağlantı sağlamak için bir dizi mekanizma 
+kullanır ve verilerin doğru şekilde aktarıldığından emin olur.
 
-TCP/IP ise, TCP'nin yanı sıra İnternet Protokolü'nü de içeren bir ağ protokolüdür. TCP/IP, internet bağlantılarının temelini oluşturur ve veri paketlerinin doğru şekilde yönlendirilmesini sağlar. TCP/IP, birçok farklı ağ protokolünün birleştirilmesine olanak tanır ve internet trafiğinin yönetimi için temel bir yapı sağlar.
+TCP/IP ise, TCP'nin yanı sıra İnternet Protokolü'nü de içeren bir ağ protokolüdür. TCP/IP, internet bağlantılarının temelini oluşturur ve veri paketlerinin doğru şekilde yönlendirilmesini 
+sağlar. TCP/IP, birçok farklı ağ protokolünün birleştirilmesine olanak tanır ve internet trafiğinin yönetimi için temel bir yapı sağlar.
 
 Yani, TCP ve TCP/IP farklı şeylerdir, ancak TCP/IP, TCP'nin yanı sıra bir dizi diğer protokolü de içerir ve internet trafiğinin yönetimi için temel bir yapı sağlar.
 
 
 # Soket Programlama Aşamaları
+Soket programlama, ağ üzerindeki bilgisayarlar arasında iletişim kurmak için kullanılan bir programlama yaklaşımıdır. Bir soket, ağ üzerindeki iki bilgisayar arasında veri alışverişi yapabilmek 
+için bir iletişim noktası olarak işlev görür.
+
+Soket programlama, çeşitli programlar arasında gerçek zamanlı iletişim, dosya transferi, veri paylaşımı ve ağ tabanlı uygulamalar gibi birçok farklı amaç için kullanılabilir. Programcılar, 
+uygun soket API'lerini kullanarak soketleri oluşturabilir, bağlantıları yönetebilir ve veri transferini gerçekleştirebilir.
+
+## 1. socket() - Bir Soket Oluşturmak 
+socket() fonksiyonu, yeni bir soket oluşturmak için kullanılır ve iletişim için gereken ağ kaynaklarını ayarlar.
+
+```
+        int socket(int domain, int type, int protocol);
+```
+
+- domain: İletişim kurulacak ağın türünü belirtir. Örneğin, AF_INET, IPv4 tabanlı ağlar için kullanılırken, AF_INET6 IPv6 tabanlı ağlar için kullanılır.
+- type: Soketin veri iletim türünü belirtir. Örneğin, SOCK_STREAM, güvenilir ve bağlantı tabanlı veri akışı için kullanılırken, SOCK_DGRAM, bağlantısız ve güvenilir olmayan veri paketleri için 
+kullanılır.
+- protocol: Kullanılacak iletişim protokolünü belirtir. Genellikle 0 olarak belirtilir ve sistem otomatik olarak uygun protokolü seçer. 
+
+> The protocol field must be set to 0, if the domain parameter is set to AF_UNIX.
+
+## 2. bind() - Bağlantı Oluşturmak
+bind() fonksiyonu, sunucu tarafında kullanılır ve genellikle bir soketin belirli bir ağ adresine ve port numarasına bağlanmasını sağlar. Bu sayede sunucu, o adres ve port üzerinden gelen 
+istemcilere hizmet verebilir.
+
+```
+        int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+```
+
+- socket: Bağlanacak soketin dosya tanımlayıcısı (file descriptor) veya soketin kendisi.
+- address: Bağlanılacak adres bilgilerini içeren bir yapı (struct). Bu yapı, genellikle sockaddr türünden bir adres yapısıdır ve kullanılan ağ türüne bağlı olarak sockaddr_in (IPv4) veya 
+sockaddr_in6 (IPv6) gibi özelleştirilmiş yapılar olabilir.
+- address_length: address parametresinin boyutunu belirten bir tamsayı değeri.
+
+> bind(bağlama) işlemi başarılı olduğunda 0 değeri döndürür, aksi halde -1 veya hata kodunu döndürür.
+
+
+## 3. 
+
+
+
+
+
+
 
 ## Server-Client Uygulaması
 
@@ -219,6 +274,100 @@ Ardından, server_socket soketi kapatılır. Bu, server tarafındaki soketin ser
 Soketlerin kapatılması, programın sonlandırılması veya soketlerin yeniden kullanılmayacağı durumlarda önemlidir. Soketlerin serbest bırakılmaması, kaynak tüketimine ve potansiyel olarak sistem çökmesine neden olabilir.
 
 
+
+
+# SocketCAN
+SocketCAN, Linux tabanlı işletim sistemlerinde kullanılan bir API (Application Programming Interface) ve araç setidir. "Socket" terimi, ağ iletişimi için kullanılan soket programlama kavramına 
+atıfta bulunurken, "CAN" (Controller Area Network) otomotiv ve endüstriyel uygulamalarda sıkça kullanılan bir iletişim protokolüdür.
+
+SocketCAN, Linux'un çekirdek düzeyinde CAN veri yolu arabirimini yöneten bir dizi sürücüye sahiptir. Bu sürücüler, kullanıcıya CAN veri yolu üzerinde veri alışverişi yapabilme yeteneği sağlar. 
+SocketCAN API'si, uygulamaların CAN veri yoluna erişim sağlamak için standart soket programlama arabirimini kullanmasını sağlar. Bu API, özellikle otomotiv ve endüstriyel otomasyon gibi CAN 
+tabanlı sistemlerde veri alışverişi için kullanılır.
+
+## SoketCAN Programlama Aşamaları  
+### 1. socket() - Soket Oluşturmak
+SocketCAN ile iletişim kurabilmek için bir soket oluşturmanız gerekmektedir. Soket, CAN veri yoluna bağlanmak için kullanılacak bir iletişim arayüzünü temsil eder. Soket oluşturulurken, 
+socket() işlevini kullanarak soket dosya tanımlayıcısını almalısınız.
+
+```c
+        m_canSocket = socket(PF_CAN, SOCK_RAW, CAN_RAW);
+```
+- PF_CAN: Soketin kullanacağı ağ etki alanını belirtir ve CAN protokolünü temsil eder. PF_CAN, CAN protokolünü destekleyen sistemlerde kullanılır.
+- SOCK_RAW: Soketin tipini belirtir ve ham veri erişimi sağlar. Bu tip, CAN veri yoluna doğrudan erişim sağlamak için kullanılır.
+- CAN_RAW: Soketin kullanacağı protokolü belirtir ve CAN protokolünü temsil eder. CAN_RAW, SocketCAN API'sinde CAN protokolünü kullanmak için kullanılır.
+
+> İşlevin dönüş değeri, soket dosya tanımlayıcısını (m_canSocket olarak adlandırılan değişken) temsil eden bir tamsayıdır. Başarısızlık durumunda -1 döndürülür ve hata durumuna göre uygun hata 
+> işlemleri yapılabilir.
+
+Bu kod parçası, CAN veri yoluna erişmek için gerekli olan soketi oluşturur. Oluşturulan soket, daha sonra CAN veri yolunda veri alışverişi yapmak, filtreleme yapmak ve diğer CAN işlemlerini 
+gerçekleştirmek için kullanılabilir.
+
+### 2. bind() - Soketi CAN Arabirine Bağlamak
+Oluşturulan soketi, kullanılacak iletişim arayüzüne bağlamanız gerekmektedir. bind() işlevini kullanarak soketi belirli bir iletişim arayüzüne bağlayabilirsiniz. Bu aşamada, CAN veri yolunda 
+iletişim yapacağınız arayüzü(can0, can1, vcan0...) belirlemeniz gerekmektedir.
+
+```c
+        struct ifreq ifr;                       //Ağ arayüzü konfigürasyon ayarlarını yapmak için bir yapı nesnesi tanımlanır. 
+
+        strcpy(ifr.ifr_name, "can0" );          //"ifr.ifr_name" alanı, CAN soketine bağlanmak istediğiniz ağ arayüzününü belirler
+        ioctl(m_socketCan, SIOCGIFINDEX, &ifr); //ağ arayüzünün endeksini almak için kullanılır. "m_socketCan" değişkeni, CAN soketinin dosya tanımlayıcısını temsil eder
+                
+        struct sockaddr_can addr;               //CAN soketine bağlantı(bind) yapmak için kullanılacak adres bilgilerini içerir
+
+        memset(&addr, 0, sizeof(addr));         //addr(&addr) yapısının bellekteki tüm alanlarını(sizeof(addr)) sıfırlar(0). 
+        addr.can_family = AF_CAN;               //AF_CAN" ifadesi, "addr" yapısının aile alanını AF_CAN olarak ayarlar. AF_CAN, CAN bus adres ailesini temsil eder.
+        addr.can_ifindex = ifr.ifr_ifindex;     //"addr" yapısının ifindex alanını "ifr" yapısındaki ifindex değeriyle eşleştirir. Bu, CAN soketinin hangi ağ arayüzüne bağlanacağını belirler.
+
+        //CAN soketini belirtilen adres ve yapıya bağlar. Bu, CAN soketini kullanıma hazır hale getirir.
+        if (bind(m_socketCan, (struct sockaddr *)&addr, sizeof(addr)) < 0) { 
+           perror("Bind");
+           return 1;
+        }
+```
+
+
+### 3. Filtrasyon Ayarları Yapma (Opsiyonel)
+İletişim arayüzünü ayarladıktan sonra, gelen veya giden CAN mesajlarını filtrelemek isterseniz filtreleme ayarlarını yapabilirsiniz. Filtreleme, sadece belirli mesajların yakalanmasını ve 
+işlenmesini sağlar.
+
+
+### 4. read() ~ write() - Veri Alışverişi
+SocketCAN ile veri alışverişi yapmak için read() ve write() işlevlerini kullanabilirsiniz. read() işlevi, CAN veri yolundan gelen mesajları almanızı sağlar, while write() işlevi ise CAN veri 
+yoluna mesaj göndermenizi sağlar. İşlevlerin kullanımı ve parametreleri belirli dil ve kütüphanelere bağlı olarak değişebilir.
+
+### 4.1 read() - Veri Okumak 
+
+```c
+        int nbytes;                     //Veri boyutunu(byte) temsil eder
+        struct can_frame frame;         //Veri iletişimin sağlayacak çevçeveyi(frame) temsil eder
+
+        //"m_socketCan" adlı CAN soketinden "frame" yapısına veri okur. "read" fonksiyonu, belirtilen soketten veriyi okuyarak okunan bayt sayısını "nbytes" değişkenine atar.
+        nbytes = read(m_socketCan, &frame, sizeof(struct can_frame));
+
+        if (nbytes < 0) {
+           perror("Read");
+           return 1;
+        }
+
+        printf("0x%03X [%d] ",frame.can_id, frame.can_dlc);     //CAN çerçevesinin CAN kimliğini (can_id) ve veri uzunluğunu (can_dlc) ekrana yazdırır. 
+        // "0x%03X" ifadesi, onaltılık olarak CAN kimliğini yazdırmak için kullanılır.
+
+        //bir döngü kullanılarak CAN çerçevesindeki veri baytları (frame.data) ekrana yazdırılır. "frame.can_dlc" değişkeni, CAN çerçevesindeki veri uzunluğunu temsil eder.
+        for (i = 0; i < frame.can_dlc; i++)
+           printf("%02X ",frame.data[i]);
+
+        printf("\r\n");
+```
+
+
+### 4.2 write() - Veri Yazmak
+
+```c
+
+```
+
+### 5. close() - Soketi Kapatmak 
+ SocketCAN işlemleri tamamlandığında, oluşturulan soketi kapatmanız gerekmektedir. Soketi kapatmak için close() işlevini kullanabilirsiniz.
 
 
 
